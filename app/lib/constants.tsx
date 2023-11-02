@@ -1,17 +1,22 @@
-export const VEHICLE_ID = {
-    CAR: 1,
-    VAN: 2
-}
-
-export const vehicleOptions = [
+export const OPTIONS = [
     {
-        id: VEHICLE_ID.CAR,
-        name: 'Car',
-        image: '/car.png'
+      id: 1,
+      name: 'Facebook'
     },
     {
-        id: VEHICLE_ID.VAN,
-        name: 'Van',
-        image: '/van.png'
-    }
+      id: 2,
+      name: 'Instagram'
+    },
+    {
+      id: 3,
+      name: 'Met someone on the street'
+    },
+    {
+      id: 4,
+      name: 'Word of mouth'
+    },
+    {
+      id: 5,
+      name: 'Other'
+    },
 ]
