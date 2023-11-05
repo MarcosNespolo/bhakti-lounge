@@ -25,20 +25,20 @@ export default function SelectOption() {
       })
       .then(async (result) => {
         console.log(result)
-        await timeout(4000)
+        await timeout(5000)
         setIsLoading(false)
         setOptionSelected(undefined)
       })
   }
 
   return (
-    <div className="p-6 h-fit w-full rounded-lg bg-white shadow-md max-w-sm">
+    <div className="p-6 h-fit w-full rounded-lg bg-white shadow-md max-w-md">
       <img
         className='w-40 mx-auto my-6'
         src={'/bhakti-logo.jpg'}
       />
-      <div className='flex flex-col gap-4 mt-6 w-full' >
-        <p className="text-gray-800 font-medium text-center">
+      <div className='flex flex-col gap-4 mb-2 mt-6 w-full' >
+        <p className="text-gray-800 font-medium text-center text-lg">
           How did you first hear about Bhakti Lounge?
         </p>
         {options.map(option => (
@@ -51,12 +51,12 @@ export default function SelectOption() {
                 p-4 
                 rounded-lg 
                 shadow 
-                text-gray-600 font-medium text-sm 
+                text-gray-600 font-medium text-base 
                 cursor-pointer
                 ${optionSelected == option.id &&
                 ' bg-primary text-white font-semibold'
                 }
-                  `}
+              `}
               onClick={() => !isLoading && selectOption(option.id)}
             >
               {option.name}
@@ -69,15 +69,15 @@ export default function SelectOption() {
           <div
             className="flex flex-col gap-2 p-4 justify-center items-center w-full rounded-md bg-green-50 text-green-800 text-left font-semibold"
           >
-            <div className="flex flex-row gap-2 items-center text-green-800 opacity-90 text-sm">
+            <div className="flex flex-row gap-2 items-center text-green-800 opacity-90 text-base">
               <CheckCircleIcon
                 className="w-12 h-12 opacity-80"
               />
-              <p className="">
+              <p>
                 Thank you for taking the time to complete this survey.
               </p>
             </div>
-            <p className="text-xs">
+            <p className="text-sm">
               Your feedback is valuable to us and will help us improve our services.
             </p>
           </div>
