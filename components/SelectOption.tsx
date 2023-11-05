@@ -46,16 +46,15 @@ export default function SelectOption() {
             ?
             <div
               className={`
-                    w-full 
-                    border border-gray-200 
-                    p-4 
-                    rounded-lg 
-                    shadow 
-                    text-gray-600 font-medium text-sm 
-                    cursor-pointer
-                    hover:text-primary
-                    ${optionSelected == option.id &&
-                ' bg-primary text-white font-semibold hover:text-white'
+                w-full 
+                border border-gray-200 
+                p-4 
+                rounded-lg 
+                shadow 
+                text-gray-600 font-medium text-sm 
+                cursor-pointer
+                ${optionSelected == option.id &&
+                ' bg-primary text-white font-semibold'
                 }
                   `}
               onClick={() => !isLoading && selectOption(option.id)}
