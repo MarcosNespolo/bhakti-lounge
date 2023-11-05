@@ -13,6 +13,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" href="/favicon.webp" />
+        <meta name="apple-mobile-web-app-capable" content='yes' />
       </head>
       <body>
         <main className="min-h-screen min-w-screen bg-background flex flex-col items-center">
