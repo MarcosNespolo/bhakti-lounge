@@ -8,7 +8,7 @@ import { timeout } from "@/app/lib/expressions"
 
 export default function SelectOption() {
   const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [options, setOptions] = useState<typeof OPTIONS>(OPTIONS)
+  const [options, setOptions] = useState<typeof OPTIONS>(OPTIONS.filter(option => option.enabled))
   const [optionSelected, setOptionSelected] = useState<number>()
 
   const supabase = createClientComponentClient()
@@ -32,13 +32,13 @@ export default function SelectOption() {
   }
 
   return (
-    <div className="p-6 h-fit w-full rounded-lg bg-white shadow-md max-w-md">
+    <div className="p-6 h-fit w-full rounded-lg bg-white shadow-md max-w-xl">
       <img
         className='w-40 mx-auto my-6'
         src={'/bhakti-logo.jpg'}
       />
-      <div className='flex flex-col gap-4 mb-2 mt-6 w-full' >
-        <p className="text-gray-800 font-medium text-center text-lg">
+      <div className='grid grid-cols-2 gap-4 mt-6 w-full' >
+        <p className="col-span-2 text-gray-800 font-medium text-center text-lg mb-2">
           How did you first hear about Bhakti Lounge?
         </p>
         {options.map(option => (
@@ -54,7 +54,7 @@ export default function SelectOption() {
                 text-gray-600 font-medium text-base 
                 cursor-pointer
                 ${optionSelected == option.id &&
-                ' bg-primary text-white font-semibold'
+                ' col-span-2 bg-primary text-xl text-white font-semibold text-center'
                 }
               `}
               onClick={() => !isLoading && selectOption(option.id)}
@@ -67,19 +67,19 @@ export default function SelectOption() {
         {isLoading
           ?
           <div
-            className="flex flex-col gap-2 p-4 justify-center items-center w-full rounded-md bg-green-50 text-green-800 text-left font-semibold"
+            className="col-span-2 flex flex-row gap-4 p-4 items-center justify-center w-full rounded-md bg-green-50 text-green-800 text-left font-semibold"
           >
-            <div className="flex flex-row gap-2 items-center text-green-800 opacity-90 text-base">
-              <CheckCircleIcon
-                className="w-12 h-12 opacity-80"
-              />
+            <CheckCircleIcon
+              className="w-12 h-12 opacity-80"
+            />
+            <div className="flex flex-col gap-2 text-green-800 opacity-90 text-base">
               <p>
                 Thank you for taking the time to complete this survey.
               </p>
+              <p className="text-sm">
+                Your feedback is valuable to us and will help us improve our services.
+              </p>
             </div>
-            <p className="text-sm">
-              Your feedback is valuable to us and will help us improve our services.
-            </p>
           </div>
           : <></>
         }
